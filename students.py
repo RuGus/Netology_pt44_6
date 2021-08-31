@@ -1,4 +1,5 @@
 import mentors
+import grades
 
 
 class Student:
@@ -29,3 +30,13 @@ class Student:
                 lecturer.grades[course] = [grade]
         else:
             return 'Ошибка'
+
+    def __lt__(self, other):
+        return grades.avg_grade_calculate(self) < grades.avg_grade_calculate(other)
+
+    def __str__(self):
+        return f'Имя: {self.name}\n' \
+               f'Фамилия: {self.surname}\n' \
+               f'Средняя оценка за домашнее задание: {grades.avg_grade_calculate(self)}\n' \
+               f'Курсы в процессе изучения: {self.courses_in_progress}\n' \
+               f'Завершенные курсы: {self.finished_courses}'
