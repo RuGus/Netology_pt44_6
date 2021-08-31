@@ -18,7 +18,7 @@ class Student:
         self.courses_in_progress.append(course_name)
 
     def rate_lecturer(self, lecturer, course, grade):
-        if grade < 0 or grade > 10:
+        if grade <= 0 or grade > 10:
             return 'Ошибка'
         if isinstance(lecturer, mentors.Lecturer) \
                 and course in lecturer.courses_attached \
